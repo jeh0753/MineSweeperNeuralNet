@@ -11,13 +11,13 @@ preTrainedModels = os.listdir("trainedModels")
 preTrainedModels = [i.replace(".h5","") for i in preTrainedModels if i[0] != '.']
 preTrainedModels = np.sort(preTrainedModels)
 toDo = input("What do you want to do? \n1. Train a new model from scratch \n2. Keep training a pre-trained model\n")
-if toDo == 1:
+if int(toDo) == 1:
     prompt = "Choose which model to train (from 'modelCode' folder): \n"
     for i in range(len(models)):
         prompt += str(i+1) +  ". " + models[i] + '\n'
     modelChoice = int(input(prompt))
     modelChoice = models[modelChoice-1]
-elif toDo == 2:
+elif int(toDo) == 2:
     prompt = "Choose which model to continue training (from 'trainedModels' folder): \n"
     for i in range(len(preTrainedModels)):
         prompt += str(i+1) +  ". " + preTrainedModels[i] + '\n'
