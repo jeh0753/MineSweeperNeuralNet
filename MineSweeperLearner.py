@@ -36,7 +36,8 @@ class MineSweeperLearner:
                 # initiate game
                 game = MineSweeper()
                 #pick middle on first selection. better than corner.
-                game.selectCell((self.dim1/2, self.dim2/2))
+                coordinates = (int(self.dim1/2), int(self.dim2/2))
+                game.selectCell(coordinates)
                 while not (game.gameOver or samplesTaken == nSamples):
                     # get data input from game state
                     Xnow = self.getPredictorsFromGameState(game.state)
